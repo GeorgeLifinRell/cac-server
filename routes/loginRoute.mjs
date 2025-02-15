@@ -3,10 +3,10 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
-import { User } from "../models/index.js";
+import { User } from "../models/userModel.mjs";
 import { otpLimiter } from "../middleware/rateLimitter.mjs";
-import { sendOTP } from "../utils/sendOTP.js";
-import { generateOTP } from "../utils/generateOTP.js";
+import { sendOTP } from "../utils/emailService.mjs";
+import { generateOTP } from "../utils/emailService.mjs";
 
 dotenv.config();
 
@@ -61,3 +61,5 @@ router.post("/forgot-password", otpLimiter, async (req, res) => {
         res.status(500).json({ error: "Failed to send OTP" });
     }
 });
+
+export default router;

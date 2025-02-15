@@ -1,7 +1,7 @@
 import { Sequelize, DataTypes } from "sequelize";
-import { sequelize } from "./index.mjs";
+import sequelize from "./index.mjs";
 
-export const UserCredentials = sequelize.define("Users", {
+export const User = sequelize.define("Users", {
   userId: {
     type: DataTypes.STRING,
     primaryKey: true,
